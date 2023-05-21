@@ -15,7 +15,7 @@ return {
       return math.floor(vim.o.lines * 0.75)
     end,
     max_width = function()
-      return max.floor(vim.o.columns * 0.75)
+      return math.floor(vim.o.columns * 0.75)
     end,
   },
 }
