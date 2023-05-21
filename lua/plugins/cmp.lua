@@ -44,6 +44,15 @@ return {
           h1_group = "LspCodeLens",
         },
       },
+      formatting = {
+        format = function(_, item)
+          local icons = require("config.icons").kinds
+          if icons[item.kind] then
+            item.kind = icons[item.kind] .. item.kind
+          end
+          return item
+        end,
+      },
     })
     local cmp_autopairs = require("nvim-autopairs.completion.cmp")
     cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
