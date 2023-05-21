@@ -6,6 +6,14 @@ return {
       "mason.nvim",
       "williamboman/mason-lspconfig.nvim",
       "hrsh7th/cmp-nvim-lsp",
+      {
+        "SmiteshP/nvim-navic",
+        opts = {
+          lsp = {
+            auto_attach = true,
+          },
+        },
+      },
     },
     opts = {
       diagnostics = {
