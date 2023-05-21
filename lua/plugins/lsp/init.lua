@@ -35,7 +35,24 @@ return {
       local Util = require("util")
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
       require("mason-lspconfig").setup()
-      require("lspconfig").lua_ls.setup({})
+      require("lspconfig").lua_ls.setup({
+        capabilities = capabilities,
+        settings = {
+          Lua = {
+            runtime = {
+              version = "LuaJIT",
+            },
+            diagnostics = {
+              globals = {
+                "vim",
+              },
+            },
+            workspace = {
+              library = vim.api.nvim_get_runtime_file("", true),
+            },
+          },
+        },
+      })
       require("lspconfig").pyright.setup({
         capabilities = capabilities,
       })
@@ -69,7 +86,7 @@ return {
         root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", ".git", "pyproject.toml"),
         sources = {
           null_ls.builtins.formatting.stylua,
-          null_ls.builtins.diagnostics.ruff,
+          null_ls.builtins.diagnostics.ruff.with({ extra_args = { "--ignore=F401" } }),
           -- null_ls.builtins.formatting.ruff,
           null_ls.builtins.formatting.rustfmt,
           null_ls.builtins.diagnostics.flake8.with({ extra_args = { "--select=E3" } }),
