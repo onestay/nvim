@@ -40,6 +40,9 @@ function M.get()
         --has = "codeAction",
       },
       { "<leader>cr", vim.lsp.buf.rename, desc = "Rename", has = "rename" },
+      { "<leader>cf", function ()
+        vim.lsp.buf.format { timeout = 2000}
+      end, desc = "Format document"}
     }
   end
   return M._keys
