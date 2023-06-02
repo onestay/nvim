@@ -5,7 +5,7 @@ return {
     priority = 1000,
     lazy = true,
     opts = {
-      flavour = "frappe",
+      flavour = "mocha",
     },
   },
 }
