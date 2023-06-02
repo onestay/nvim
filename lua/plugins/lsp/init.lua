@@ -67,9 +67,9 @@ return {
     "jose-elias-alvarez/null-ls.nvim",
     event = { "BufReadPre", "BufNewFile" },
     config = function(_, opts)
-      local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
       local null_ls = require("null-ls")
       null_ls.setup({
+        -- debug = true,
         root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", ".git", "pyproject.toml"),
         sources = {
           null_ls.builtins.formatting.stylua,
@@ -79,7 +79,8 @@ return {
           null_ls.builtins.diagnostics.flake8.with({ extra_args = { "--select=E3" } }),
           null_ls.builtins.formatting.isort,
           null_ls.builtins.formatting.black,
-          -- null_ls.builtins.diagnostics.mypy,
+          null_ls.builtins.diagnostics.shellcheck,
+          null_ls.builtins.code_actions.shellcheck,
         },
       })
     end,
