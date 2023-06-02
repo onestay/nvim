@@ -30,6 +30,8 @@ return {
       end,
       desc = "Notifications",
     },
+    { "<leader>ss", "<cmd>Telescope lsp_document_symbols<cr>", desc = "LSP Document symbols"},
+    { "<leader>sS", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", desc = "LSP Workspace symbols"},
   },
   opts = {
     defaults = {
