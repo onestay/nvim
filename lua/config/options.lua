@@ -9,6 +9,7 @@ vim.opt.relativenumber = true
 vim.opt.autowrite = true
 vim.opt.clipboard = "unnamedplus"
 vim.opt.confirm = true
+vim.opt.hlsearch = true
 vim.opt.cursorline = true
 vim.opt.grepformat = "%f:%l:%c:%m"
 vim.opt.grepprg = "rg --vimgrep"
