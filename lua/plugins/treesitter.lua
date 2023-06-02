@@ -19,7 +19,6 @@ return {
       },
       highlight = { enable = true },
       indent = { enable = true },
-      auto_install = true,
     },
     build = ":TSUpdate",
     event = { "BufReadPost", "BufNewFile" },
