@@ -41,7 +41,7 @@ function M.get()
       },
       { "<leader>cr", vim.lsp.buf.rename, desc = "Rename", has = "rename" },
       { "<leader>cf", function ()
-        vim.lsp.buf.format { timeout = 2000}
+        vim.lsp.buf.format { timeout_ms = 3000}
       end, desc = "Format document"}
     }
   end

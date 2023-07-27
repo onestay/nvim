@@ -20,7 +20,7 @@ return {
       highlight = { enable = true },
       indent = { enable = true },
     },
-    build = ":TSUpdate",
+--    build = ":TSUpdate",
     event = { "BufReadPost", "BufNewFile" },
     config = function(_, opts)
       if type(opts.ensure_installed) == "table" then

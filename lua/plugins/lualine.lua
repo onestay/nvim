@@ -29,7 +29,7 @@ return {
             icon_only = true,
             seperator = "",
           },
-          { "filename", path = 1, symbols = { modified = "  ", readonly = "", unnamed = "" } },
+          { "filename", path = 1, symbols = { modified = " ", readonly = "󰌾", unnamed = "" } },
           {
             function()
               return require("nvim-navic").get_location()
@@ -40,6 +40,14 @@ return {
           },
         },
         lualine_x = {
+          {
+            function()
+              return require("gitblame").get_current_blame_text()
+            end,
+            cond = function()
+              return package.loaded["gitblame"] and require("gitblame").is_blame_text_available()
+            end,
+          },
           {
             "diff",
             symbols = {
